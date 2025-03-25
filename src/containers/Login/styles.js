@@ -103,4 +103,12 @@ export const InpuntContainer = styled.div `
         color: #fff;
     }
 
+    p {
+        font-size: 14px;
+        line-height: 80%;
+        color: #cf3057;
+        font-weight: 600;
+        height: 10px;
+    }
+
 `;
