@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { toast } from 'react-toastify'
+import { api } from "../../services/api";
 
 
 import { Container, InpuntContainer, LeftContainer, RightConatiner, Title, Form } from "./styles";
@@ -24,9 +26,27 @@ export function Login() {
     } = useForm({
         resolver: yupResolver(schema),
     })
-    const onSubmit = (data) => console.log(data)
 
     console.log(errors)
+
+
+    const onSubmit = async (data) => {
+        const response = await toast.promise(
+            api.post('/sessions', {
+                email: data.email,
+                password: data.password
+            }), 
+            {
+                pending: 'Verificando seus dados',
+                sucess: 'Seja Bem-Vindo(a) 👌',
+                error: 'Email ou Senha Incorretos 🤯',
+            },
+        
+        ) 
+
+        console.log(response)
+    }
+
 
 
     return (
@@ -44,13 +64,13 @@ export function Login() {
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <InpuntContainer>
                         <label>Email</label>
-                        <input type="email" {...register("email")}/>
+                        <input type="email" {...register("email")} />
                         <p>{errors?.email?.message}</p>
                     </InpuntContainer>
 
                     <InpuntContainer>
                         <label>Senha</label>
-                        <input type="password" {...register("password")}/>
+                        <input type="password" {...register("password")} />
                         <p>{errors?.password?.message}</p>
                     </InpuntContainer>
 
