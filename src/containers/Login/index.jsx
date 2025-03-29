@@ -5,12 +5,14 @@ import { toast } from 'react-toastify'
 import { api } from "../../services/api";
 
 
-import { Container, InpuntContainer, LeftContainer, RightConatiner, Title, Form } from "./styles";
+import { Container, InpuntContainer, LeftContainer, RightConatiner, Title, Form, Link } from "./styles";
 import Logo from '../../assets/logo.svg'
 import { Button } from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 
 export function Login() {
+    const navigate = useNavigate();
 
     const schema = yup
         .object({
@@ -27,7 +29,7 @@ export function Login() {
         resolver: yupResolver(schema),
     })
 
-    console.log(errors)
+   
 
 
     const onSubmit = async (data) => {
@@ -38,13 +40,20 @@ export function Login() {
             }), 
             {
                 pending: 'Verificando seus dados',
-                sucess: 'Seja Bem-Vindo(a) 👌',
+                success: {
+                    render(){
+                        setTimeout(() => {
+                            navigate('/')
+                        }, 2000)
+                        return `'Seja Bem-Vindo(a) 👌'` 
+                    },
+                },
                 error: 'Email ou Senha Incorretos 🤯',
             },
         
         ) 
 
-        console.log(response)
+     
     }
 
 
@@ -78,7 +87,7 @@ export function Login() {
 
                 </Form>
 
-                <p>Não possui conta? <a>Clique aqui.</a></p>
+                <p>Não possui conta? <Link to={"/cadastro"}>Clique aqui.</Link></p>
 
             </RightConatiner>
         </Container>
