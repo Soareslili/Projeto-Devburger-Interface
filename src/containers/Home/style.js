@@ -27,6 +27,8 @@ export const Container = styled.section`
     ), 
     url('${Background}');
     height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
 `;
 
 
