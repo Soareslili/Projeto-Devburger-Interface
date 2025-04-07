@@ -4,6 +4,7 @@ import { Banner, Container } from "./style";
 import {OffersCarousel} from '../../components/OffersCarousel'
 
 
+
 export function Home() {
 
     return (
