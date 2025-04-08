@@ -7,7 +7,9 @@ import {useUser} from '../../hooks/UserContext'
 
 export function Header() {
     const navigate = useNavigate();
+
     const {logout, userInfo} = useUser()
+    
     const {pathname} = useResolvedPath();
 
     function logoutUser() {

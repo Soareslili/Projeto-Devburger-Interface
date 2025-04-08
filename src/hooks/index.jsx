@@ -1,11 +1,14 @@
- import { UserProvider } from "./UserContext"
- 
- 
- const AppProvider = ({children}) => {
-    return (
-        <UserProvider>{children}</UserProvider>
-    )
-  
- }
+import { CartProvider } from "./CartContext"
+import { UserProvider } from "./UserContext"
 
- export default AppProvider
+
+const AppProvider = ({ children }) => {
+    return (
+        <UserProvider>
+            <CartProvider>{children}</CartProvider>
+        </UserProvider>
+    )
+
+}
+
+export default AppProvider
