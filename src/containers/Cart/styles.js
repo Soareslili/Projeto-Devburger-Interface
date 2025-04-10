@@ -10,6 +10,8 @@ export const Container = styled.div`
     ), 
     url('${BackgroudCart}');
     min-height: 100vh;
+    background-position: center;
+    background-size: cover;
 `
 
 export const Banner = styled.div`

@@ -38,8 +38,8 @@ export const Title = styled.h2`
     position: relative;
    text-align: center;
    font-weight: 800;
-   margin-bottom: 70px 0;
    margin-top: 70px;
+   margin-bottom: 80px;
    
    &::after {
     content: '';
