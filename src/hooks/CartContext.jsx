@@ -1,4 +1,4 @@
-import { joiResolver } from '@hookform/resolvers/joi';
+
 import { useContext, createContext, useEffect, useState } from 'react';
 
 const CartContext = createContext({});

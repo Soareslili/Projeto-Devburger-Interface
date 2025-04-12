@@ -1,7 +1,6 @@
 
-import { CategoriesCarousel } from "../../components/CategoriesCarousel";
+import { CategoriesCarousel, OffersCarousel } from "../../components";
 import { Banner, Container } from "./style";
-import {OffersCarousel} from '../../components/OffersCarousel'
 
 
 
