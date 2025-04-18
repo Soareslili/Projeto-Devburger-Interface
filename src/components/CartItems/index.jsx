@@ -21,31 +21,6 @@ export function CartItems() {
                     <Table.Th>Total</Table.Th>
                 </Table.Tr>
             </Table.Header>
-            <Table.Body>
-                {cartProducts?.length ? (
-                    cartProducts.map(product => (
-                        <Table.Tr key={product.id}>
-                            <Table.Td>
-                                <img
-                                    src={product.url} />
-                            </Table.Td>
-                            <Table.Td>{product.name}</Table.Td>
-                            <Table.Td>{product.currencyValue}</Table.Td>
-                            <Table.Td>{product.quantity}</Table.Td>
-                            
-                        </Table.Tr>
-                    ))
-                ) : (
-                    <Table.Tr>
-                        <Table.Td >
-                            Carrinho vazio
-                        </Table.Td>
-                    </Table.Tr>
-                )}
-            </Table.Body>
-
-
-
         </Table.Root>
     )
 }
