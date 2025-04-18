@@ -6,25 +6,34 @@ import { useCart } from "../../hooks/CartContext";
 
 
 
-export function CardProduct({product}){
+export function CardProduct({ product }) {
 
-    const {putProductInCart} =useCart()
+    const { putProductInCart } = useCart()
 
-    return(
+ 
+
+
+    return (
         <Container>
-           <CardImage src={product.url} alt={product.name}/>
-           <div>
-            <p>{product.name}</p>
-            <strong>{product.currencyValue}</strong>
-           </div>
-           <CartButton onClick={() => putProductInCart(product)}></CartButton>
+            <CardImage src={product.url} alt={product.name} />
+            <div>
+                <p>{product.name}</p>
+                <strong>{product.currencyValue}</strong>
+            </div>
+            <CartButton onClick={() => putProductInCart(product)}></CartButton>
         </Container>
 
-    
-        
+
+
     )
 }
 
 CardProduct.propTypes = {
-    products: PropTypes.object,
+    product: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        currencyValue: PropTypes.string.isRequired,
+        quantity: PropTypes.number,
+    }).isRequired,
 };

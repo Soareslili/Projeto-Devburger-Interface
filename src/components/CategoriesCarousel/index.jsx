@@ -18,7 +18,7 @@ export function CategoriesCarousel() {
 
 
             setCategories(data)
-            console.log(data)
+            
         }
 
         loadCategories()
