@@ -29,11 +29,5 @@ export function CardProduct({ product }) {
 }
 
 CardProduct.propTypes = {
-    product: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-        currencyValue: PropTypes.string.isRequired,
-        quantity: PropTypes.number,
-    }).isRequired,
+    product: PropTypes,
 };
