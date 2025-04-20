@@ -34,8 +34,10 @@ export const CartProvider = ({ children }) => {
 
 
     const clearCart = () => {
-
+        setCartProducts([]);
+        localStorage.removeItem('devburger:cartInfo');
     }
+    
 
     const deleteProduct = (productId) => {
         const newCart = cartProducts.filter((prd) => prd.id !== productId)
