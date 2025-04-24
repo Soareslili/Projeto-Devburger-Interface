@@ -8,7 +8,9 @@ export const Container = styled.div`
         rgba(255, 255, 255, 0.5),
         rgba(255, 255, 255, 0.5)
     ), 
+    
     url('${Background}');
+    background-size: cover;
     
 
 
@@ -85,8 +87,8 @@ export const ProductsContainer = styled.div`
 
 export const ButtonBack = styled.button`
 
-    background-color: #9758a6;
-    color: #fff;
+    background-color: ${props => props.theme.purple};
+    color: ${props => props.theme.white};
     border: none;
     padding: 8px 16px;
     margin: 16px;

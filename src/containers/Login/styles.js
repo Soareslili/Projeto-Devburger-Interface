@@ -70,7 +70,7 @@ export const Title = styled.h2 `
 
     span {
         font-family: "Road Rage", sans-serif;
-        color: #9758a6;
+        color: ${props => props.theme.purple};
     }
 `;
 
