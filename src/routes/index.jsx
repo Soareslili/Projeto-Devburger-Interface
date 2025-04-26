@@ -1,57 +1,23 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Home, Cart, Menu, Register, Login } from "../containers";
-import { Header, Footer } from "../components";
+import { UserLayout } from '../layouts/UserLayout'; // Certifique-se de que o caminho está correto
 
-
-
-
-
-export const router = createBrowserRouter([
-    {
-        path: '/',
-        element:
-
-            (
-                <>
-                    <Header />
-                    <Home />
-                    <Footer />
-                </>
-            )
-    },
-
-    {
-        path: '/login',
-        element: <Login />,
-    },
-
-    {
-        path: '/cadastro',
-        element: <Register />,
-    },
-
-    {
-        path: '/cardapio',
-        element:
-            (
-                <>
-                    <Header />
-                    <Menu />
-                    <Footer />
-                </>
-            )
-    },
-
-    {
-        path: '/carrinho',
-        element:
-        (
-            <>
-                <Cart />
-            </>
-        )
+export function Router() {
+    return (
+        <Routes>
            
+            <Route path="/" element={<UserLayout />}>
+                <Route index element={<Home />} />  {/* Definindo a rota para a página inicial */}
+                <Route path="cardapio" element={<Menu />} />
+                <Route path="carrinho" element={<Cart />} />
+            </Route>
+
+          
+            <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Register />} />
+        </Routes>
+    );
+}
 
 
-    },
-])
+
