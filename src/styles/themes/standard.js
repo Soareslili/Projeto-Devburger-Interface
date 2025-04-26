@@ -13,7 +13,7 @@ export const standardTheme = {
     white: '#fff',
     secondWhite: '#f0f0f0',
     darkWhite: '#f4f4f4',
-    gren: '${props => props.theme.mainBlack}',
+    gren: '#61A120',
     roadRageFont: '"Road Rage", sans-serif',
     poppinsFont: '"Poppins", sans-serif',
     }
