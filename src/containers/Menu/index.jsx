@@ -10,8 +10,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export function Menu() {
 
-    const [Categories, setCategories] = useState([]);
-    const [Products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
 
 
@@ -36,44 +36,35 @@ export function Menu() {
     useState(() => {
         async function loadCategories() {
             const { data } = await api.get('/categories')
-
             const newCategories = [{ id: 0, name: 'Todas' }, ...data]
-
-
             setCategories(newCategories)
-
         }
 
 
         async function loadProducts() {
             const { data } = await api.get('/products')
-
-
-            const newProducts = data.map(product =>
-            ({ currencyValue: formatPrice(product.price), ...product }
-            ))
-
+            const newProducts = data.map(product => ({
+                currencyValue: formatPrice(product.price),
+                ...product
+            }))
             setProducts(newProducts)
-
-            
         }
-       
+    
         loadCategories()
         loadProducts()
-
     }, [])
 
     useEffect(() => {
         if (activeCategory === 0) {
-            setFilteredProducts(Products)
+            setFilteredProducts(products)
         } else {
-            const newFilteredProducts = Products.filter(
+            const newFilteredProducts = productsroducts.filter(
                 product => product.category_id === activeCategory,
             )
 
             setFilteredProducts(newFilteredProducts)
         }
-    }, [Products, activeCategory])
+    }, [products, activeCategory])
 
 
 
@@ -94,7 +85,7 @@ export function Menu() {
             </Banner>
 
             <CategoryMenu>
-                {Categories.map((category) => (
+                {categories.map((category) => (
                     <CategoryButton
                         key={category.id}
                         $isActiveCategory={category.id === activeCategory}
