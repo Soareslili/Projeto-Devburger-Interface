@@ -83,6 +83,7 @@ export const ErrorMessage = styled.span`
 
 `
 
+
 export const ContainerCheckbox = styled.div`
     display: flex;
     gap: 10px;
@@ -95,7 +96,6 @@ export const ContainerCheckbox = styled.div`
 
 
 `
-
 
 
 
